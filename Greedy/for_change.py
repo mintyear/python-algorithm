@@ -1,27 +1,25 @@
-# 반복문(금액 입력)
+# 반복문(딕셔너리, 리스트 사용)
 
 class Solution:
     def solution(self, money):
 
-        a = [500,100,50,10] # 자료구조, 대수(상수)
-
+        a = [50000,10000,5000,1000,500,100,50,10] # 자료구조, 대수(상수)
         dc = {}
+
+        print('### 화폐교환 ###')
+        print("*"*30)
+        print(f'요청금액 : {money} 원')
 
         for i in a: # 알고리즘, 리스트
             cnt = money // i
             dc[i] = cnt
             money = money % i
 
-        print('### 화폐교환 ###')
-        print("*"*30)
-        print(f'요청금액 : {money} 원')
-        
         for k,v in dc.items(): # 딕셔너리 # k, v 자동으로 앞의 값이 key가 됨
             print(f'{k}원 : {v} 매')
         print("*"*30)
-        return
 
 if __name__ == '__main__':
     solution = Solution()
     money = input('교환을 원하는 금액 입력 : ')
-    print(solution.solution(int(money)))
+    solution.solution(int(money))
